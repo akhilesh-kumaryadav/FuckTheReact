@@ -1,0 +1,22 @@
+{
+  "name": "fuck_react",
+  "version": "1.0.0",
+  "description": "Fully loaded react practice and app. Fuck the React!!!!",
+  "main": "App.js",
+  "scripts": {
+    "test": "zest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhilesh-kumaryadav/FuckTheReact.git"
+  },
+  "author": "Akhilesh!! Fuck The React!!",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akhilesh-kumaryadav/FuckTheReact/issues"
+  },
+  "homepage": "https://github.com/akhilesh-kumaryadav/FuckTheReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
