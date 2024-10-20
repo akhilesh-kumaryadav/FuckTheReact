@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React Component
-const HeadingJSX = () => (
+//React Element
+const headingJSXReactElement = (
   <div>
     <h1 id="heading" tabIndex="5">
       Heading using JSX Component, industry standard code!! Fuck the React!!!
@@ -11,9 +11,10 @@ const HeadingJSX = () => (
 );
 
 //React Funcational Componenet
-const JSXComponent = () => (
+const HeadingJSXComponent = () => (
   <div>
-    <HeadingJSX />
+    {100 + 200}
+    {headingJSXReactElement}
     <h1 id="heading" tabIndex="5">
       Heading using JSX Functional Component, industry standard code!! Fuck the
       React!!!
@@ -21,18 +22,6 @@ const JSXComponent = () => (
   </div>
 );
 
-const JSXComponent2 = () => {
-  return (
-    <div>
-      <h1 id="heading" tabIndex="5">
-        Heading using JSX, more explaible code!! Fuck the React!!!
-      </h1>
-    </div>
-  );
-};
-
-const JSXComponent3 = () => <h1>Heading in single line</h1>;
-
 const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
 
-reactRoot.render(<JSXComponent />);
+reactRoot.render(<HeadingJSXComponent />);
