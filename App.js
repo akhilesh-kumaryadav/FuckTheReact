@@ -34,7 +34,7 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
   return (
     <div className="restaurant-card">
       <img
@@ -42,8 +42,8 @@ const RestaurantCard = () => {
         alt="restautrant-logo"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/dd519572ed1bed19de47e94186e743ea"
       />
-      <h3>Akhilesh Foods</h3>
-      <h5>Russians</h5>
+      <h3>{props.name}</h3>
+      <h5>{props.cuisines}</h5>
       <h5>4.9 Stars</h5>
       <h5>30 min</h5>
       <h5>Order value of 2 person - 599/- </h5>
@@ -57,16 +57,8 @@ const Body = () => {
       <div className="ads">Restaurant ads and site offers</div>
       <div className="search-bar">Search Bar</div>
       <div className="restaurant-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        <RestaurantCard name="Akhilesh Foods" cuisines="Russians" />
+        <RestaurantCard name="KFC" cuisines="Russians chicken legs" />
       </div>
     </div>
   );
