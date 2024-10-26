@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Fully loaded react practice and app. Fuck the React!!!!",
   "scripts": {
-    "start": "npx parcel index.html",
+    "app": "npx parcel index.html",
     "build": "npx parcel build index.html",
     "test": "jest"
   },

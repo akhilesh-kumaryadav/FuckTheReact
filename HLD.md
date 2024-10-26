@@ -1,0 +1,22 @@
+Frontend Layout
+    - Header
+        - Logo
+        - Nav Items
+        - Profile
+    - Body
+        - Ads (which can be scrolled horizontally) of restro offers, Site offers
+        - Search Bar
+        - Container
+            - Left side, filtering options
+            - Restro containers
+                - Image
+                - Name
+                - Cuisines served
+                - restro rating
+                - Time to delivery
+                - Order value of 2 person
+    - Footer
+        - Copy Rights
+        - Company address
+        - Links 
+        - Contacts
