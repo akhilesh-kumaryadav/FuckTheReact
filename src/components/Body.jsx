@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -19,7 +20,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
     );
     const jsonResData = await resData.json();
-    console.log(jsonResData);
+
     setResList(
       jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
@@ -27,10 +28,12 @@ const Body = () => {
   };
 
   if (resList.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Shimmer />;
   }
 
-  return (
+  return resList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="ads">Restaurant ads and site offers</div>
       <div className="search-bar">Search Bar</div>
