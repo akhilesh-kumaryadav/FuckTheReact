@@ -26,6 +26,10 @@ const Body = () => {
     );
   };
 
+  if (resList.length === 0) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div className="body">
       <div className="ads">Restaurant ads and site offers</div>
