@@ -1,15 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import RestaurantCard from "./RestaurantCard";
-import { restaurantList } from "../utils/mockData";
 
 const Body = () => {
-  const [resList, setResList] = useState(restaurantList);
+  const [resList, setResList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const filterByRating = () => {
     const filteredResList = resList.filter((res) => res.info.avgRating > 4.2);
     setResList(filteredResList);
   };
+
+  const fetchData = async () => {
+    const resData = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    );
+    const jsonResData = await resData.json();
+    console.log(jsonResData);
+    setResList(
+      jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
+  };
+
+  if (resList.length === 0) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="body">
