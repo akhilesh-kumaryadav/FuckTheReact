@@ -24,12 +24,12 @@ const Body = () => {
     const jsonResData = await resData.json();
 
     setResList(
-      jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonResData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
 
     setFilteredResList(
-      jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonResData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
   };
@@ -42,7 +42,7 @@ const Body = () => {
     setFilteredResList(filteredByText);
   };
 
-  return resList.length === 0 ? (
+  return resList?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
