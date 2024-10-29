@@ -81,3 +81,15 @@
   margin: 4px;
 }
 /* Shimmer card ends */
+
+/* Search container starts */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+}
+/* Search container ends */
