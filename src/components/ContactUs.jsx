@@ -1,4 +1,3 @@
-import User from "./User";
 import UserClass from "./UserClass";
 
 const ContactUs = () => {
@@ -7,7 +6,6 @@ const ContactUs = () => {
       <h1>Contact Us</h1>
       <p>Mobile Number - 7522089744</p>
 
-      <User />
       <UserClass name="Abinaya" address="Madurai" phone="9999600564" />
     </div>
   );
