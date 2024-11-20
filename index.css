@@ -93,3 +93,9 @@
   width: 300px;
 }
 /* Search container ends */
+
+.user {
+  margin: 2px;
+  padding: 2px;
+  border: 1px solid black;
+}

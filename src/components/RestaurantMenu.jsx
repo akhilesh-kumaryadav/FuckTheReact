@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
       </p>
       <p>Menu</p>
       <ul>
-        {itemCards.map((item) => (
+        {itemCards?.map((item) => (
           <li>
             {item.card.info.name} - {item.card.info.price}
           </li>
