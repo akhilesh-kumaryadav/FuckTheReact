@@ -18,6 +18,16 @@ class UserClass extends React.Component {
       <div className="user">
         <p>Count0 - {count0}</p>
         <p>Count1 - {count1}</p>
+        <button
+          onClick={() => {
+            this.setState({
+              count0: count0 + 1,
+              count1: count1 + 1,
+            });
+          }}
+        >
+          Click To Increase
+        </button>
         <h2>Name - {name}</h2>
         <p>Address - {address}</p>
         <p>Contact - {phone}</p>
