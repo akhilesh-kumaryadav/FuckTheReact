@@ -20,6 +20,7 @@ class ContactUs extends React.Component {
         <p>Mobile Number - 7522089744</p>
 
         <UserClass name="Abinaya" address="Madurai" phone="9999600564" />
+        <UserClass name="akhilesh" address="kanpur" phone="9999600564" />
       </div>
     );
   }
