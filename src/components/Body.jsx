@@ -14,10 +14,8 @@ const Body = () => {
   const resList = useRestaurantList();
 
   useEffect(() => {
-    if (resList.length) {
-      setFilteredResList(resList);
-    }
-  }, []);
+    setFilteredResList(resList);
+  }, [resList]);
 
   if (!onlineStatus)
     return (
