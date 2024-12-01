@@ -4,15 +4,25 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_LIST_URL } from "../utils/constant";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const onlineStatus = useOnlineStatus();
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (!onlineStatus)
+    return (
+      <h1>
+        Looks like you are offline. Please check your internet connection.
+      </h1>
+    );
 
   const filterByRating = () => {
     const filResList = resList.filter((res) => res.info.avgRating > 4.2);
