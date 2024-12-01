@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
-import { RESTAURANT_LIST_URL } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
-  const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   const onlineStatus = useOnlineStatus();
+  const resList = useRestaurantList();
 
   useEffect(() => {
-    fetchData();
+    if (resList.length) {
+      setFilteredResList(resList);
+    }
   }, []);
 
   if (!onlineStatus)
@@ -27,22 +29,6 @@ const Body = () => {
   const filterByRating = () => {
     const filResList = resList.filter((res) => res.info.avgRating > 4.2);
     setFilteredResList(filResList);
-  };
-
-  const fetchData = async () => {
-    const resData = await fetch(RESTAURANT_LIST_URL);
-    const jsonResData = await resData.json();
-
-    setResList(
-      // HERE - value inside this [] array needed to be changes as swiggy changes the API
-      jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-
-    setFilteredResList(
-      jsonResData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
   };
 
   const filterByText = () => {
