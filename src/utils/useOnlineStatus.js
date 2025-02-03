@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 const useOnlineStatus = () => {
-  const [onlineStatus, getOnlineStatus] = useState(true);
+  const [onlineStatus, setOnlineStatus] = useState(true);
 
   useEffect(() => {
     window.addEventListener("offline", () => {
-      getOnlineStatus(false);
+      setOnlineStatus(false);
     });
 
     window.addEventListener("online", () => {
-      getOnlineStatus(true);
+      setOnlineStatus(true);
     });
   }, []);
 

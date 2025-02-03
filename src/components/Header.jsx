@@ -34,6 +34,9 @@ const Header = () => {
               <Link to="/about-us">About Us!</Link>
             </li>
             <li>
+              <Link to="/grocery">Grocery</Link>
+            </li>
+            <li>
               <button
                 onClick={() => {
                   reactBtn === "Login"
