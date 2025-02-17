@@ -20,7 +20,7 @@ const Body = () => {
   if (!onlineStatus)
     return (
       <h1>
-        Looks like you are offline. Please check your internet connection.
+        Looks like you are offline!!! Please check your internet connection.
       </h1>
     );
 
