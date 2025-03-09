@@ -40,23 +40,29 @@ const Body = () => {
   return resList?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="ads">Restaurant ads and site offers</div>
-      <div className="search-container">
-        <div className="search-bar">
-          <input
-            placeholder="Search for food, restaurant, cuisines"
-            className="search-input"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button onClick={filterByText}>Search</button>
-        </div>
-        <div className="filter-by-rating">
-          <button onClick={filterByRating}>Filter by Rating</button>
-        </div>
+    <div className="flex flex-col justify-center">
+      <div className="m-4 text-center">Restaurant ads and site offers</div>
+      <div className="m-4 px-4 flex justify-center">
+        <input
+          placeholder="Search for food, restaurant, cuisines"
+          className="border-2 mx-2 rounded-sm w-[28ch]"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button
+          className="mx-2 px-4 bg-red-400 rounded-sm"
+          onClick={filterByText}
+        >
+          Search
+        </button>
+        <button
+          className="mx-2 px-4 bg-red-400 rounded-sm"
+          onClick={filterByRating}
+        >
+          Filter by Rating
+        </button>
       </div>
-      <div className="restaurant-container">
+      <div className="flex flex-wrap justify-center">
         {filteredResList?.map((restaurant) => (
           <Link
             to={"/restaurant/" + restaurant.info.id}
