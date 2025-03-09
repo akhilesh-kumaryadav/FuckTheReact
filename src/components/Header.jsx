@@ -13,51 +13,49 @@ const Header = () => {
   }, [reactBtn]);
 
   return (
-    <div id="header" className="header">
-      <div id="logo-container" className="logo-container">
-        <img id="logo" className="logo" src={LOGO_URL} />
+    <div className="m-2 flex justify-between bg-red-200 shadow-lg rounded-2xl">
+      <div>
+        <img className="w-25 p-4" src={LOGO_URL} />
       </div>
-      <div id="nav-item-container" className="nav-item-container">
-        <div id="nav-items" className="nav-items">
-          <ul>
-            <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/Cart">Cart</Link>
-            </li>
-            <li>
-              <Link to="/contact-us">Contact</Link>
-            </li>
-            <li>
-              <Link to="/about-us">About Us!</Link>
-            </li>
-            <li>
-              <Link to="/grocery">Grocery</Link>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  reactBtn === "Login"
-                    ? setReactBtn("Logout")
-                    : setReactBtn("Login");
-                }}
-              >
-                {reactBtn}
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div id="profile" className="profile">
-          <a>
-            <img
-              id="profile-img"
-              className="profile-img"
-              src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png"
-            />
-          </a>
-        </div>
+      <div className="flex">
+        <ul className="flex items-center px-4 mx-4">
+          <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+          <li className="px-4">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/Cart">Cart</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/contact-us">Contact</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/about-us">About Us!</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/grocery">Grocery</Link>
+          </li>
+          <li className="px-4">
+            <button
+              onClick={() => {
+                reactBtn === "Login"
+                  ? setReactBtn("Logout")
+                  : setReactBtn("Login");
+              }}
+            >
+              {reactBtn}
+            </button>
+          </li>
+          <li className="px-4">
+            <a>
+              <img
+                id="profile-img"
+                className="w-30"
+                src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png"
+              />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );
