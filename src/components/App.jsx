@@ -16,7 +16,7 @@ const App = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div id="app" className="app">
         <Header />
         <Outlet />
