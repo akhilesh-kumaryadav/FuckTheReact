@@ -1,4 +1,5 @@
 import { CDN_URL } from "../utils/constant";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } =
@@ -15,6 +16,11 @@ const RestaurantCard = (props) => {
       <h5>{avgRating} Stars</h5>
       <h5>{sla.deliveryTime} min</h5>
       <h5>{costForTwo} </h5>
+      <h5>
+        <UserContext.Consumer>
+          {(user) => <div className="font-bold">{user.loggedInUser}</div>}
+        </UserContext.Consumer>
+      </h5>
     </div>
   );
 };
@@ -24,11 +30,13 @@ export const withPromotedLabel = (RestaurantCard) => {
   return (restaurant) => {
     return (
       <div>
-        <div className="absolute mx-4 p-3 bg-black text-white rounded-2xl">Promoted</div>
-        <RestaurantCard {...restaurant}/>
+        <div className="absolute mx-4 p-3 bg-black text-white rounded-2xl">
+          Promoted
+        </div>
+        <RestaurantCard {...restaurant} />
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default RestaurantCard;
