@@ -15,7 +15,7 @@ const useRestaurantList = () => {
 
     setResList(
       // HERE - value inside this [] array needed to be changes as swiggy changes the API
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
   };
