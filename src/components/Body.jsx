@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [filteredResList, setFilteredResList] = useState([]);
@@ -12,6 +13,8 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   const resList = useRestaurantList();
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
@@ -63,6 +66,14 @@ const Body = () => {
         >
           Filter by Rating
         </button>
+        <div>
+          <label>User Name: </label>
+          <input
+            className="bg-gray-100 border-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex flex-wrap justify-center">
         {filteredResList?.map((restaurant) => (
@@ -70,8 +81,11 @@ const Body = () => {
             to={"/restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-            {!restaurant.info.promoted ? <PromotedRestaurantCard restaurant={restaurant}/> : <RestaurantCard restaurant={restaurant} />}
-            
+            {!restaurant.info.promoted ? (
+              <PromotedRestaurantCard restaurant={restaurant} />
+            ) : (
+              <RestaurantCard restaurant={restaurant} />
+            )}
           </Link>
         ))}
       </div>
