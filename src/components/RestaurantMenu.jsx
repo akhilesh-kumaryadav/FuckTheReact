@@ -3,8 +3,10 @@ import Shimmer from "./Shimmer";
 
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCatogory from "./RestaurantCatogory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
+  const [showIndex, setShowIndex] = useState(0);
   const { resId } = useParams();
 
   const resMenu = useRestaurantMenu(resId);
@@ -15,10 +17,6 @@ const RestaurantMenu = () => {
 
   const { name, cloudinaryImageId, costForTwoMessage, cuisines } =
     resMenu?.data?.cards[2]?.card?.card?.info;
-
-  const { itemCards } =
-    resMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
 
   const catogories =
     resMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -33,10 +31,12 @@ const RestaurantMenu = () => {
       <p>
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      {catogories.map((catogory) => (
+      {catogories.map((catogory, index) => (
         <RestaurantCatogory
           key={catogory.card.card.title}
           data={catogory.card.card}
+          showList={index === showIndex}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>
