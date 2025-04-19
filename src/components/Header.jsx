@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [reactBtn, setReactBtn] = useState("Login");
@@ -10,6 +11,8 @@ const Header = () => {
   const user = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   useEffect(() => {
     console.log("useEffect hit");
@@ -27,7 +30,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="px-4">
-            <Link to="/Cart">Cart</Link>
+            <Link to="/Cart">Cart ({cartItems.length} items)</Link>
           </li>
           <li className="px-4">
             <Link to="/contact-us">Contact</Link>
